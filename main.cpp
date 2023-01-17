@@ -5,7 +5,7 @@ int main(){
     int days[1000];
     days[0] = 0;
     int N, Q;
-    int a, b;w
+    int a, b;
     cin >> N >> Q;
 
     for (int i = 1; i < N; i++){

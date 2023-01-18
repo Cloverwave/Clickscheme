@@ -1,3 +1,4 @@
+
 """
 Django settings for clickscheme project.
 
@@ -25,8 +26,8 @@ SECRET_KEY = 'django-insecure-ic!5c1t+1%&8s4@*wh4()fs1p815d%_zz-@)*$ejen_jpjh0(l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["https://*.gitpod.io", "localhost"]
+CSRF_TRUSTED_ORIGINS=['https://*.gitpod.io/']
 
 # Application definition
 

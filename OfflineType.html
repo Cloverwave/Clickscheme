@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3 id="known"></h3>
+    </body>
+
+    <script>
+        var textbox = document.getElementById("known");
+        textbox.innerHTML = "i gotchu fam   ";
+        var textindie = 0;
+        var wordindie = 0;
+        word = [
+            "i",
+            " ",
+            "g",
+            "o",
+            "t",
+            "c",
+            "h",
+            "u",
+            " ",
+            "f",
+            "a",
+            "m"
+        ]
+        var chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+        var specials = ["Backspace", "Control"]
+
+        String.prototype.replaceAt = function(index, replacement) {
+            textindie += replacement.length - 1;
+            return this.substring(0, index) + replacement + this.substring(index+1);
+        }
+
+        window.addEventListener("keydown", (event)=> {
+            // alert(event.key);
+            if (chars.includes(event.key)){
+                if (!event.ctrlKey){
+                    if (word[wordindie] == event.key){
+                        // alert(textbox.innerHTML);
+                        textbox.innerHTML = textbox.innerHTML.replaceAt(textindie, "<span style='color:grey;'>" + word[wordindie] + "</span>");
+                        wordindie ++;
+                    }
+                    textindie ++;
+                }
+                
+            }
+            else if (specials.includes(event.key)){
+                if (!event.ctrlKey){
+                    if (textindie != 0){
+                        const lasty = textindie;
+                        while (textbox.innerHTML.substring(textindie, textindie+3) != "<sp" && textindie!=0){  
+                            textindie--;
+                        }
+
+                        const a = textbox.innerHTML.substring(0, textindie);
+                        const b = textbox.innerHTML.substring(lasty);
+                        wordindie --;
+                        textbox.innerHTML = a + word[wordindie] + b;
+                    }
+                }
+                // if (event.ctrlKey){
+                //     while (word[wordindie] != " " || wordindie > 0){
+                //         while (textbox)
+                //     }
+                // }
+            }
+
+
+            else {
+                alert("NAO");
+            }
+        });
+
+    </script>
+
+</html>
